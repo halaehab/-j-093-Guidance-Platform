@@ -3,14 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GUI;
+package volanteer;
 
 import java.awt.Image;
+import static java.lang.Thread.sleep;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +27,7 @@ public class volanteerInterface extends javax.swing.JFrame {
 
     public volanteerInterface() {
         initComponents();
+        currentTime(time);
         normal();
 
         connection c = new connection();
@@ -45,8 +51,8 @@ public class volanteerInterface extends javax.swing.JFrame {
                 name3.setText(result2.getString("full_name"));
                 nationality3.setText(result2.getString("nationality"));
                 age3.setText(result2.getString("age"));
-                
-                byte [] img = result2.getBytes("photo");
+
+                byte[] img = result2.getBytes("photo");
                 ImageIcon image = new ImageIcon(img);
                 Image im = image.getImage();
                 Image myImage = im.getScaledInstance(imageLabel.getWidth(), imageLabel.getHeight(), Image.SCALE_SMOOTH);
@@ -90,18 +96,26 @@ public class volanteerInterface extends javax.swing.JFrame {
         hotelPhone = new javax.swing.JLabel();
         supervisorPhone = new javax.swing.JLabel();
         moz_big_border = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        button2 = new javax.swing.JLabel();
+        button1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        button = new javax.swing.JLabel();
+        button3 = new javax.swing.JLabel();
         makkah22 = new javax.swing.JLabel();
         mozd11 = new javax.swing.JLabel();
         arafat_big_border = new javax.swing.JLabel();
         makkah_big_border = new javax.swing.JLabel();
         arafa11 = new javax.swing.JLabel();
         imageLabel = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         moz_small_border = new javax.swing.JLabel();
         travel2 = new javax.swing.JLabel();
         mina11 = new javax.swing.JLabel();
         name3 = new javax.swing.JLabel();
         age3 = new javax.swing.JLabel();
         Campaign_guide = new javax.swing.JLabel();
+        time = new javax.swing.JLabel();
         madina22 = new javax.swing.JLabel();
         nationality3 = new javax.swing.JLabel();
         madina_big_border = new javax.swing.JLabel();
@@ -157,41 +171,36 @@ public class volanteerInterface extends javax.swing.JFrame {
 
         supervisor.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         supervisor.setForeground(new java.awt.Color(255, 255, 255));
-        supervisor.setText("0556544343");
         supervisor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         infoPanel.add(supervisor);
         supervisor.setBounds(10, 110, 330, 20);
 
         title.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         title.setForeground(new java.awt.Color(0, 204, 255));
-        title.setText("MADINA");
         title.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         infoPanel.add(title);
-        title.setBounds(10, 13, 230, 22);
+        title.setBounds(10, 23, 230, 30);
 
         hotel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         hotel.setForeground(new java.awt.Color(255, 255, 255));
-        hotel.setText("Ajyad Hotel");
         hotel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         infoPanel.add(hotel);
         hotel.setBounds(10, 50, 330, 20);
 
         hotelPhone.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         hotelPhone.setForeground(new java.awt.Color(255, 255, 255));
-        hotelPhone.setText("Street ajyad,ffugij");
         hotelPhone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         infoPanel.add(hotelPhone);
         hotelPhone.setBounds(10, 70, 330, 20);
 
         supervisorPhone.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         supervisorPhone.setForeground(new java.awt.Color(255, 255, 255));
-        supervisorPhone.setText("0556544343");
         supervisorPhone.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         infoPanel.add(supervisorPhone);
         supervisorPhone.setBounds(10, 130, 330, 20);
 
         getContentPane().add(infoPanel);
-        infoPanel.setBounds(460, 100, 330, 200);
+        infoPanel.setBounds(110, 150, 330, 200);
 
         moz_big_border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volanteer/Picture6.png"))); // NOI18N
         moz_big_border.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -204,6 +213,62 @@ public class volanteerInterface extends javax.swing.JFrame {
         });
         getContentPane().add(moz_big_border);
         moz_big_border.setBounds(290, 350, 110, 80);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volanteer/ssssd.png"))); // NOI18N
+        getContentPane().add(jLabel5);
+        jLabel5.setBounds(440, 10, 30, 30);
+
+        button2.setFont(new java.awt.Font("Segoe Print", 3, 24)); // NOI18N
+        button2.setForeground(new java.awt.Color(255, 255, 255));
+        button2.setText("H");
+        button2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button2MouseClicked(evt);
+            }
+        });
+        getContentPane().add(button2);
+        button2.setBounds(470, 10, 30, 30);
+
+        button1.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
+        button1.setForeground(new java.awt.Color(0, 204, 255));
+        button1.setText("ajj Location");
+        button1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button1MouseClicked(evt);
+            }
+        });
+        getContentPane().add(button1);
+        button1.setBounds(490, 10, 160, 30);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volanteer/ssssd.png"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(660, 10, 30, 30);
+
+        button.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
+        button.setForeground(new java.awt.Color(0, 204, 255));
+        button.setText("ccept");
+        button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buttonMouseClicked(evt);
+            }
+        });
+        getContentPane().add(button);
+        button.setBounds(710, 10, 100, 30);
+
+        button3.setFont(new java.awt.Font("Segoe Print", 3, 24)); // NOI18N
+        button3.setForeground(new java.awt.Color(255, 255, 255));
+        button3.setText("A");
+        button3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        button3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                button3MouseClicked(evt);
+            }
+        });
+        getContentPane().add(button3);
+        button3.setBounds(690, 10, 30, 30);
 
         makkah22.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
         makkah22.setForeground(new java.awt.Color(0, 204, 255));
@@ -249,6 +314,16 @@ public class volanteerInterface extends javax.swing.JFrame {
         getContentPane().add(imageLabel);
         imageLabel.setBounds(490, 190, 100, 90);
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volanteer/nnext.png"))); // NOI18N
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel2);
+        jLabel2.setBounds(620, 250, 31, 50);
+
         moz_small_border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volanteer/Picture7.png"))); // NOI18N
         moz_small_border.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -260,7 +335,6 @@ public class volanteerInterface extends javax.swing.JFrame {
 
         travel2.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
         travel2.setForeground(new java.awt.Color(255, 255, 255));
-        travel2.setText("Name:");
         getContentPane().add(travel2);
         travel2.setBounds(250, 310, 210, 20);
 
@@ -272,21 +346,23 @@ public class volanteerInterface extends javax.swing.JFrame {
 
         name3.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
         name3.setForeground(new java.awt.Color(255, 255, 255));
-        name3.setText("Name:");
         getContentPane().add(name3);
         name3.setBounds(170, 150, 280, 20);
 
         age3.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
         age3.setForeground(new java.awt.Color(255, 255, 255));
-        age3.setText("Name:");
         getContentPane().add(age3);
         age3.setBounds(160, 230, 260, 20);
 
         Campaign_guide.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
         Campaign_guide.setForeground(new java.awt.Color(255, 255, 255));
-        Campaign_guide.setText("Name:");
         getContentPane().add(Campaign_guide);
         Campaign_guide.setBounds(250, 270, 220, 20);
+
+        time.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
+        time.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(time);
+        time.setBounds(60, 10, 190, 30);
 
         madina22.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
         madina22.setForeground(new java.awt.Color(0, 204, 255));
@@ -296,7 +372,6 @@ public class volanteerInterface extends javax.swing.JFrame {
 
         nationality3.setFont(new java.awt.Font("Segoe Print", 3, 18)); // NOI18N
         nationality3.setForeground(new java.awt.Color(255, 255, 255));
-        nationality3.setText("Name:");
         getContentPane().add(nationality3);
         nationality3.setBounds(210, 190, 240, 20);
 
@@ -357,6 +432,11 @@ public class volanteerInterface extends javax.swing.JFrame {
         makkah_small_border.setBounds(160, 360, 80, 70);
 
         madina_small_border.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volanteer/Picture7.png"))); // NOI18N
+        madina_small_border.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                madina_small_borderMouseEntered(evt);
+            }
+        });
         getContentPane().add(madina_small_border);
         madina_small_border.setBounds(90, 360, 80, 70);
 
@@ -394,7 +474,7 @@ public class volanteerInterface extends javax.swing.JFrame {
         getContentPane().add(name);
         name.setBounds(120, 150, 70, 20);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/GUI/rsz_a.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/volanteer/rsz_a.png"))); // NOI18N
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel1MouseClicked(evt);
@@ -413,7 +493,30 @@ public class volanteerInterface extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+public static void currentTime(JLabel time) {
 
+        Thread clock = new Thread() {
+            @Override
+            public void run() {
+                for (;;) {
+                    Calendar cal = new GregorianCalendar();
+                    int second = cal.get(Calendar.SECOND);
+                    int minute = cal.get(Calendar.MINUTE);
+                    int hour = cal.get(Calendar.HOUR);
+                    if (hour == 0) {
+                        hour = 12;
+                    }
+                    time.setText(hour + " : " + minute + " : " + second);
+                    try {
+                        sleep(1000);
+                    } catch (Exception e) {
+                        JOptionPane.showMessageDialog(null, e.getMessage());
+                    }
+                }
+            }
+        };
+        clock.start();
+    }
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
         //        this.setVisible(false);
         //        menu Home = new menu();
@@ -540,6 +643,51 @@ public class volanteerInterface extends javax.swing.JFrame {
         normal();
     }//GEN-LAST:event_moz_big_borderMouseExited
 
+    private void madina_small_borderMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_madina_small_borderMouseEntered
+        normal();
+        madina11.setVisible(false);
+        madina22.setVisible(true);
+        madina_big_border.setVisible(true);
+        madina_small_border.setVisible(false);
+    }//GEN-LAST:event_madina_small_borderMouseEntered
+
+    private void button2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button2MouseClicked
+        String map_path = "file:///C:/Users/Hala/Desktop/New%20folder/FingerPrint/maps/defult.html";
+        GoogleMap map = new GoogleMap();
+        map.path = map_path;
+        map.SetMap();    }//GEN-LAST:event_button2MouseClicked
+
+    private void button1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button1MouseClicked
+        String map_path = "file:///C:/Users/Hala/Desktop/New%20folder/FingerPrint/maps/defult.html";
+        GoogleMap map = new GoogleMap();
+        map.path = map_path;
+        map.SetMap();
+    }//GEN-LAST:event_button1MouseClicked
+
+    private void buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_buttonMouseClicked
+        if (button.getText().equals("ccept")) {
+            button.setText("one");
+            button3.setText("D");
+        } else if (button.getText().equals("one")) {
+            button.setText("ccept");
+            button3.setText("A");
+        }
+    }//GEN-LAST:event_buttonMouseClicked
+
+    private void button3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button3MouseClicked
+        if (button.getText().equals("ccept")) {
+            button.setText("one");
+            button3.setText("D");
+        } else if (button.getText().equals("one")) {
+            button.setText("ccept");
+            button3.setText("A");
+        }
+    }//GEN-LAST:event_button3MouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+       JOptionPane.showMessageDialog(this, "This feature is for future use, It will allow moving to the next request :) ");
+    }//GEN-LAST:event_jLabel2MouseClicked
+
     private void normal() {
 
         infoPanel.setVisible(false);
@@ -613,12 +761,19 @@ public class volanteerInterface extends javax.swing.JFrame {
     private javax.swing.JLabel arafa22;
     private javax.swing.JLabel arafat_big_border;
     private javax.swing.JLabel arafat_small_border;
+    private javax.swing.JLabel button;
+    private javax.swing.JLabel button1;
+    private javax.swing.JLabel button2;
+    private javax.swing.JLabel button3;
     private javax.swing.JLabel hotel;
     private javax.swing.JLabel hotelPhone;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JLabel imgFrameLabel;
     private javax.swing.JPanel infoPanel;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel madina11;
     private javax.swing.JLabel madina22;
     private javax.swing.JLabel madina_big_border;
@@ -642,6 +797,7 @@ public class volanteerInterface extends javax.swing.JFrame {
     private javax.swing.JLabel nationality4;
     private javax.swing.JLabel supervisor;
     private javax.swing.JLabel supervisorPhone;
+    private javax.swing.JLabel time;
     private javax.swing.JLabel title;
     private javax.swing.JLabel travel2;
     // End of variables declaration//GEN-END:variables
@@ -666,20 +822,20 @@ public class volanteerInterface extends javax.swing.JFrame {
                         supervisorPhone.setText("Supervisor No.: " + result3.getString("supervisor_phone"));
                         break;
                     case "arafat":
-                        hotel.setText("Hotel: " + result3.getString("arafa_tent_no"));
-                        // hotelPhone.setText("Hotel No.: "+result3.getString("madina_hotel_phone"));
+                        hotel.setText("Tent: " + result3.getString("arafa_tent_no"));
+                        hotelPhone.setText("");
                         supervisor.setText("Supervisor Name: " + result3.getString("supervisor_name"));
                         supervisorPhone.setText("Supervisor No.: " + result3.getString("supervisor_phone"));
                         break;
                     case "mozd":
                         hotel.setText("Tent No.: " + result3.getString("mozdalefa_tent_no"));
-                        // hotelPhone.setText("Hotel No.: "+result3.getString("madina_hotel_phone"));
+                        hotelPhone.setText("");
                         supervisor.setText("Supervisor Name: " + result3.getString("supervisor_name"));
                         supervisorPhone.setText("Supervisor No.: " + result3.getString("supervisor_phone"));
                         break;
                     case "mina":
-                        hotel.setText("Hotel: " + result3.getString("mina_tent_no"));
-                        //hotelPhone.setText("Hotel No.: "+result3.getString("madina_hotel_phone"));
+                        hotel.setText("Tent: " + result3.getString("mina_tent_no"));
+                        hotelPhone.setText("");
                         supervisor.setText("Supervisor Name: " + result3.getString("supervisor_name"));
                         supervisorPhone.setText("Supervisor No.: " + result3.getString("supervisor_phone"));
                         break;
